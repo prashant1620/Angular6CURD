@@ -1,0 +1,68 @@
+<div class="div">
+<form class="from" #userForm="ngForm"   (ngSubmit)="onSave(userForm.value)" novalidate>  
+  <p>Is "myForm" valid? {{userForm.valid}}</p>  
+ 
+  <table class="table" border='4'>  
+<tr class="name">  
+<td >NAME</td>  
+<td>   
+    <input name="id" type="hidden"     [(ngModel)]="id" />
+     <input name="name" type="text"  required  [(ngModel)]="name" />
+     
+ </td>  
+</tr>  
+  
+<tr class="name">  
+    <td>ADDRESS</td>  
+    <td>    <input name="address" required  type="text"   [(ngModel)]="address" /></td> <br/>   
+    </tr> 
+    <tr class="name">  
+      <td>PHONE</td>  
+      <td>   
+          <input name="id1" type="hidden"     [(ngModel)]="id1" />
+           <input name="phone" type="text"  required  [(ngModel)]="phone" />
+           
+       </td>  
+      </tr> 
+      <tr class="name">  
+        <td>EMAIL</td>  
+        <td>   
+            <input name="id2" type="hidden"     [(ngModel)]="id2" />
+             <input name="email" type="text"  required  [(ngModel)]="email" />
+             
+         </td>  
+        </tr>         
+    <tr class="name">  
+        <td colspan="2">  
+    <input type="submit" value="{{valbutton}}" />  
+    </td>  
+    </tr>
+   
+ </table>  
+</form>   <br/>
+<br/>
+<br/>
+  
+<table class="table" border='2'>  
+  
+  <tr>  
+    <td>Id</td>  
+    <td>Name</td>  
+    <td>Address</td> 
+    <td>Phone</td>
+    <td>Email</td> 
+   <!-- <td>Edit</td>  
+    <td>Delete</td>-->  
+  </tr>  
+  <tr *ngFor="let kk of Repdata;let ind = index">  
+       
+    <td>{{ind + 1}}</td>  
+    <td>{{kk.name}}</td>  
+    <td>{{kk.address}}</td> 
+    <td>{{kk.phone}}</td> 
+    <td>{{kk.email}}</td>
+    <td class="edit"><a (click)="edit(kk)" style="color:blueviolet">Edit</a></td>  
+    <td class="delete"><a (click)="delete(kk._id)" style="color:blueviolet">Delete</a>  </td>  
+  </tr>  
+</table>  
+  </div>
